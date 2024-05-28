@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="planets_array">
+        <item><b>SELECT YEAR</b></item>
+        <item>I YEAR</item>
+        <item>II YEAR</item>
+        <item>III YEAR</item>
+        <item>IV YEAR</item>
+        <!-- Add more items as needed -->
+    </string-array>
+</resources>
