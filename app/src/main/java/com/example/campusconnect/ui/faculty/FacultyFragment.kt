@@ -76,7 +76,7 @@ class FacultyFragment : androidx.fragment.app.Fragment() {
                     }
                     csDep.setHasFixedSize(true)
                     csDep.layoutManager = LinearLayoutManager(context)
-                    adapter= TeacherAdapter(list1, context!!)
+                    adapter= TeacherAdapter(list1, context)
                     csDep.adapter=adapter
 
                 }
@@ -181,7 +181,7 @@ class FacultyFragment : androidx.fragment.app.Fragment() {
                     }
                     machDep.setHasFixedSize(true)
                     machDep.layoutManager = LinearLayoutManager(context)
-                    adapter= TeacherAdapter(list4,context!!)
+                    adapter= TeacherAdapter(list4,context)
                     machDep.adapter=adapter
 
                 }

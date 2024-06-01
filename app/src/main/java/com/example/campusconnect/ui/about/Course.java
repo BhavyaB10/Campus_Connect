@@ -1,22 +1,13 @@
 package com.example.campusconnect.ui.about;
 
 public class Course {
-    private int img;
     private String title,description;
 
-    public Course(int img, String title, String description) {
-        this.img = img;
+    public Course(String title, String description) {
         this.title = title;
         this.description = description;
     }
 
-    public int getImg() {
-        return img;
-    }
-
-    public void setImg(int img) {
-        this.img = img;
-    }
 
     public String getTitle() {
         return title;

@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         when(item.itemId){
             R.id.navigation_developer -> startActivity(Intent(this@MainActivity,DeveloperActivity::class.java))
             R.id.navigation_video -> video()
-            R.id.navigation_rate -> Toast.makeText(this,"Rate Us",Toast.LENGTH_SHORT).show()
+            R.id.navigation_rate -> startActivity(Intent(this, RateUsActivity::class.java))
             R.id.navigation_ebook -> startActivity(Intent(this@MainActivity,EBook::class.java))
             R.id.navigation_website -> collegeWebsite()
             R.id.navigation_share -> share()

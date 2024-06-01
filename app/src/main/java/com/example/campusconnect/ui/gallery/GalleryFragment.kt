@@ -27,7 +27,7 @@ class GalleryFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val view= inflater.inflate(R.layout.fragment_gallery, container, false)
-        convoRecyclerView=view.findViewById(R.id.imageRecyclerView)
+        convoRecyclerView=view.findViewById(R.id.convocationRecyclerView)
         otherRecyclerView=view.findViewById(R.id.image2RecyclerView)
         independenceRV=view.findViewById(R.id.independenceRecyclerView)
 

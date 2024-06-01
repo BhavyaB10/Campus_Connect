@@ -40,7 +40,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/independenceRecyclerView"/>
+                    android:id="@+id/convocationRecyclerView"/>
 
             </LinearLayout>
 
@@ -76,7 +76,7 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageRecyclerView"/>
+                    android:id="@+id/independenceRecyclerView"/>
 
             </LinearLayout>
 

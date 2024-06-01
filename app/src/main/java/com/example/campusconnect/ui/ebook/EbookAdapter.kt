@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.campusconnect.R
 
@@ -19,16 +18,23 @@ class EbookAdapter(private val context: Context, private val list: List<EbookDat
         return EbookViewHolder(view)
     }
 
+
     override fun onBindViewHolder(holder: EbookViewHolder, position: Int) {
-        holder.ebookName.text = list[position].name
+
+        holder.ebookName.text = list[position].pdfTitle
+        println("Title--------------"+list[position].pdfTitle)
         holder.itemView.setOnClickListener {
-          Toast.makeText(context,"Ebook",Toast.LENGTH_SHORT).show()
+
+            val intent = Intent(context, PdfViewer::class.java)
+            intent.putExtra("pdfUrl", list.get(position).pdfUrl)
+            context.startActivity(intent)
         }
+
         holder.ebookDownload.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(list[position].pdfUrl)
             context.startActivity(intent)
- }
+        }
     }
 
     override fun getItemCount(): Int {
@@ -40,8 +46,8 @@ class EbookAdapter(private val context: Context, private val list: List<EbookDat
         val ebookDownload: ImageView
 
         init {
-            ebookDownload = itemView.findViewById(R.id.ebookDownload)
             ebookName = itemView.findViewById(R.id.ebookName)
+            ebookDownload = itemView.findViewById(R.id.ebookDownload)
         }
     }
 }

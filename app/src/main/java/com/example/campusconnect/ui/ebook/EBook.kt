@@ -14,7 +14,7 @@ import com.example.campusconnect.R
 
 class EBook : AppCompatActivity() {
     lateinit var ebookRecycler:RecyclerView
-    private lateinit var reference: DatabaseReference
+    lateinit var reference: DatabaseReference
     lateinit var list: List<EbookData>
     lateinit var adapter: EbookAdapter
     lateinit var progressbar:ProgressBar
@@ -28,6 +28,8 @@ class EBook : AppCompatActivity() {
 
         ebookRecycler=findViewById(R.id.ebookRecycler)
         progressbar=findViewById(R.id.progressBar)
+
+
         reference=FirebaseDatabase.getInstance().reference.child("pdf")
 
         getData()
@@ -38,10 +40,14 @@ class EBook : AppCompatActivity() {
         reference.addValueEventListener(object : ValueEventListener{
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 list=ArrayList()
+
                 progressbar.visibility= View.GONE
-               for(snapshot:DataSnapshot in dataSnapshot.children){
-                   val data : EbookData? = snapshot.getValue(EbookData::class.java)
-                   (list as ArrayList<EbookData>).add(data!!)
+               for(snapshot in dataSnapshot.children){
+                   val data = snapshot.getValue(EbookData::class.java)
+                   data?.let { (list as ArrayList<EbookData>).add(it)
+                       println("list--------------"+it)
+                   }
+
                }
 
                 adapter= EbookAdapter(this@EBook,list)

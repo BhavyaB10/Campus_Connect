@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.campusconnect.R
 
 
-class TeacherAdapter(private val list: List<TeacherData>, private val context: Context) :
+class TeacherAdapter(private val list: List<TeacherData>, private val context: Context?) :
     RecyclerView.Adapter<TeacherAdapter.TeacherViewAdapter>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TeacherViewAdapter {
         val view = LayoutInflater.from(context).inflate(R.layout.faculty_item_layout, parent, false)
@@ -23,7 +23,7 @@ class TeacherAdapter(private val list: List<TeacherData>, private val context: C
         holder.email.text = item.email
         holder.post.text = item.post
         try {
-            Glide.with(context).load(item.image).placeholder(R.drawable.fac).into(holder.imageView)
+            Glide.with(context!!).load(item.image).placeholder(R.drawable.user).into(holder.imageView)
         } catch (e: Exception) {
         }
     }

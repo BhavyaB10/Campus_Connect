@@ -12,7 +12,7 @@ import com.example.campusconnect.R
 
 
 class AboutFragment : Fragment() {
-    private lateinit var viewPager : ViewPager
+    private lateinit var viewPager: ViewPager
     private lateinit var crAdapter: CourseAdapter
     lateinit var list: List<Course>
 
@@ -22,19 +22,57 @@ class AboutFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_about, container, false)
+        val view = inflater.inflate(R.layout.fragment_about, container, false)
 
         val list = ArrayList<Course>()
-        list.add(Course(R.drawable.ic_cs,"Computer Science","Computer Science is branch gfchgjjlkjm"))
-        list.add(Course(R.drawable.ic_mechanical,"Mechanical","Mechanical is toughest branch of engineering contain various subfields and also known as master branch of engineering"))
+        list.add(
+            Course(
+                "Computer Engineering",
+                "Computer Engineering at IET DAVV focuses on developing expertise in computer systems, software development, and algorithms. Core courses include Programming and Data Structures, Algorithms, Computer Networks, Operating Systems, and Database Management Systems. Graduates are prepared for careers in software development, systems design, and IT consulting."
+            )
+        )
+        list.add(
+            Course(
+                "Information Technology",
+                "The Information Technology program covers key areas such as Web Technologies, Software Engineering, Information Security, Data Mining, and Cloud Computing. This branch equips students with skills to excel in IT infrastructure, cybersecurity, and data analytics roles, catering to the growing demand for IT professionals."
+            )
+        )
+        list.add(
+            Course(
+                "Electronics and Telecommunication Engineering",
+                "Combining electronics with measurement and control, this branch covers Control Systems, Instrumentation Devices, Sensors and Transducers, Process Control, and Industrial Automation. It prepares students for roles in automation, instrumentation, and control engineering sectors."
+            )
+        )
+        list.add(
+            Course(
+                "Mechanical Engineering",
+                "Mechanical Engineering includes Thermodynamics, Fluid Mechanics, Machine Design, Manufacturing Processes, and Heat Transfer. Students are trained for careers in design, manufacturing, and thermal engineering, addressing the mechanical needs of various industries."
+            )
+        )
+        list.add(
+            Course(
+                "Civil Engineering",
+                "Civil Engineering focuses on Structural Analysis, Geotechnical Engineering, Transportation Engineering, Environmental Engineering, and Construction Management. Graduates are equipped to work in construction, urban planning, and infrastructure development, contributing to building and maintaining essential public works."
+            )
+        )
+        list.add(
+            Course(
+                "Electronics and Instrumentation Engineering",
+                "Combining electronics with measurement and control, this branch covers Control Systems, Instrumentation Devices, Sensors and Transducers, Process Control, and Industrial Automation. It prepares students for roles in automation, instrumentation, and control engineering sectors."
+            )
+        )
 
-        crAdapter= CourseAdapter(context,list)
 
-        viewPager=view.findViewById(R.id.viewPager)
+        crAdapter = CourseAdapter(context, list)
 
-        val imageView : ImageView=view.findViewById(R.id.college_image)
+        viewPager = view.findViewById(R.id.viewPager)
 
-        Glide.with(context!!).load("https://firebasestorage.googleapis.com/v0/b/my-college-app-9a831.appspot.com/o/Iet.webp?alt=media&token=498e3601-1894-49c4-ad34-7e6a5fa3a4af")
+        viewPager.adapter = crAdapter
+
+        val imageView: ImageView = view.findViewById(R.id.college_image)
+
+        Glide.with(context!!)
+            .load("https://firebasestorage.googleapis.com/v0/b/my-college-app-9a831.appspot.com/o/gallery%2FUntitled.jpg?alt=media&token=fe905be7-40ac-4a3b-914d-9b2fa7928470")
             .into(imageView)
 
         return view
