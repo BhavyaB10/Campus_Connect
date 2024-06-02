@@ -16,6 +16,22 @@ class AboutFragment : Fragment() {
     private lateinit var crAdapter: CourseAdapter
     lateinit var list: List<Course>
 
+     private val handler = Handler(Looper.getMainLooper())
+    private var currentPage = 0
+    private val delayMs: Long = 3000
+
+        private val delayMs: Long = 3000
+
+    private val runnable = object : Runnable {
+        override fun run() {
+            if (crAdapter.count > 0) {
+                currentPage = (currentPage + 1) % crAdapter.count
+                viewPager.setCurrentItem(currentPage, true)
+                handler.postDelayed(this, delayMs)
+            }
+        }
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -76,6 +92,17 @@ class AboutFragment : Fragment() {
             .into(imageView)
 
         return view
+    }
+        override fun onPause() {
+        super.onPause()
+        // Stop the handler when the fragment is not visible
+        handler.removeCallbacks(runnable)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        // Resume the handler when the fragment is visible again
+        handler.postDelayed(runnable, delayMs)
     }
 
 }
