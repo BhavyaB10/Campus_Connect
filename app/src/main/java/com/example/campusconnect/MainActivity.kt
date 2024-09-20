@@ -88,7 +88,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             R.id.navigation_video -> video()
             R.id.navigation_rate -> startActivity(Intent(this, RateUsActivity::class.java))
             R.id.navigation_ebook -> startActivity(Intent(this@MainActivity,EBook::class.java))
-            R.id.navigation_website -> collegeWebsite()
+            R.id.navigation_website -> {
+                Toast.makeText(this@MainActivity,"website",Toast.LENGTH_SHORT).show()
+                collegeWebsite()
+            }
             R.id.navigation_share -> share()
           R.id.navigation_color -> showDialog()
         }
