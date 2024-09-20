@@ -17,7 +17,7 @@ class AboutFragment : Fragment() {
     lateinit var list: List<Course>
 
      private val handler = Handler(Looper.getMainLooper())
-    private var currentPage = 0
+    private var currentPage = 3
     private val delayMs: Long = 3000
 
         private val delayMs: Long = 3000
